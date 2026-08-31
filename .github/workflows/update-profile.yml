@@ -1,0 +1,58 @@
+name: Refresh pixel profile
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17,47 * * * *"
+  push:
+    branches: [main]
+    paths:
+      - "config/**"
+      - "scripts/**"
+      - "package.json"
+      - "package-lock.json"
+  repository_dispatch:
+    types: [refresh-profile]
+
+concurrency:
+  group: pixel-profile-refresh
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install the pinned pixel-profile renderer
+        run: npm ci
+
+      - name: Generate live profile
+        run: npm run generate
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Validate generated files
+        run: npm test
+
+      - name: Save refreshed profile
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md assets/ dist/
+          if git diff --cached --quiet; then
+            echo "Profile is already current."
+          else
+            git commit -m "chore: refresh profile data"
+            git push
+          fi

@@ -1,0 +1,18 @@
+{
+  "name": "xiaosike-github-profile",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "The auto-updating GitHub profile README for 01-Yang, powered by pixel-profile.",
+  "scripts": {
+    "generate": "node scripts/generate.mjs",
+    "test": "node scripts/test.mjs",
+    "check": "npm run generate && npm test"
+  },
+  "dependencies": {
+    "pixel-profile": "1.3.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
