@@ -131,80 +131,10 @@ function escapeHtml(value) {
     .replaceAll("'", "&#39;");
 }
 
-function formatNumber(value) {
-  const number = Number(value || 0);
-  if (number >= 1_000_000) return `${(number / 1_000_000).toFixed(1).replace(".0", "")}M`;
-  if (number >= 1_000) return `${(number / 1_000).toFixed(1).replace(".0", "")}K`;
-  return String(number);
-}
-
-function selectRepositories(repositories) {
-  const visible = repositories.filter(
-    (repository) =>
-      !repository.fork &&
-      !repository.archived &&
-      !config.excludeRepositories.includes(repository.name)
-  );
-  const byName = new Map(visible.map((repository) => [repository.name, repository]));
-  const selected = [];
-
-  for (const name of config.featuredRepositories) {
-    const repository = byName.get(name);
-    if (!repository) continue;
-    selected.push(repository);
-    byName.delete(name);
-  }
-
-  const remaining = [...byName.values()].sort((left, right) => {
-    const starDifference = right.stargazers_count - left.stargazers_count;
-    if (starDifference !== 0) return starDifference;
-    return new Date(right.updated_at) - new Date(left.updated_at);
-  });
-
-  return [...selected, ...remaining].slice(0, config.repositoryLimit);
-}
-
-function repositoryCard(repository) {
-  const language = repository.language ? `<code>${escapeHtml(repository.language)}</code>` : "MULTI-STACK";
-  const stars = Number(repository.stargazers_count || 0);
-  const forks = Number(repository.forks_count || 0);
-  const metadata = [language, `${formatNumber(stars)} STAR${stars === 1 ? "" : "S"}`];
-  if (forks > 0) metadata.push(`${formatNumber(forks)} FORKS`);
-  const liveLink = repository.homepage
-    ? ` · <a href="${escapeHtml(repository.homepage)}">LIVE ↗</a>`
-    : "";
-
-  return `<td width="50%" valign="top">
-<h3><a href="${escapeHtml(repository.html_url)}">${escapeHtml(repository.name)} ↗</a></h3>
-<p>${escapeHtml(repository.description || "持续构建中，保持迭代。")}</p>
-<sub>${metadata.join(" &nbsp;·&nbsp; ")}${liveLink}</sub>
-</td>`;
-}
-
-function renderRepositoryTable(repositories) {
-  const rows = [];
-  for (let index = 0; index < repositories.length; index += 2) {
-    const left = repositoryCard(repositories[index]);
-    const right = repositories[index + 1]
-      ? repositoryCard(repositories[index + 1])
-      : '<td width="50%" valign="top"></td>';
-    rows.push(`<tr>\n${left}\n${right}\n</tr>`);
-  }
-  return `<table>\n${rows.join("\n")}\n</table>`;
-}
-
-function renderReadme(repositories, generatedAt) {
-  const syncTime = new Intl.DateTimeFormat("zh-CN", {
-    timeZone: config.refreshTimezone,
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false
-  }).format(new Date(generatedAt));
-
+function renderReadme() {
   return `<!-- Generated automatically. Edit config/profile.json or scripts/generate.mjs instead. -->
+
+# Hi, I'm 01Yang 👋
 
 <p>
 ${escapeHtml(config.headline)}<br>
@@ -217,19 +147,6 @@ ${escapeHtml(config.role)}
 <div align="center">
   <img src="./assets/github-stats.png" width="100%" alt="${escapeHtml(config.displayName)} 的像素风 GitHub 数据卡，包含 Star、提交、PR、Issue、贡献仓库与等级统计">
 </div>
-
-<br>
-
-## PROJECTS / 代表项目
-
-${renderRepositoryTable(repositories)}
-
-<br>
-
-<div align="center">
-  <sub>BUILD IN PUBLIC · KEEP SHIPPING · STAY CURIOUS</sub><br>
-  <sub>自动更新于 ${escapeHtml(syncTime)} (UTC+8) · Pixel card powered by <a href="https://github.com/LuciNyan/pixel-profile">pixel-profile</a></sub>
-</div>
 `;
 }
 
@@ -238,7 +155,6 @@ const [user, repositories] = await Promise.all([
   github(`/users/${encodeURIComponent(config.username)}`),
   getPublicRepositories(config.username)
 ]);
-const selectedRepositories = selectRepositories(repositories);
 const stats = await collectPublicStats(user, repositories);
 const card = await renderStats(stats, {
   background: config.card.background,
@@ -248,7 +164,7 @@ const card = await renderStats(stats, {
   includeAllCommits: false,
   isFastMode: true
 });
-const readme = renderReadme(selectedRepositories, generatedAt);
+const readme = renderReadme();
 
 await mkdir(path.join(root, "assets"), { recursive: true });
 await mkdir(path.join(root, "dist"), { recursive: true });
@@ -261,18 +177,7 @@ await Promise.all([
     `${JSON.stringify(
       {
         generatedAt,
-        stats,
-        repositories: selectedRepositories.map((repository) => ({
-          name: repository.name,
-          description: repository.description,
-          html_url: repository.html_url,
-          homepage: repository.homepage,
-          language: repository.language,
-          stargazers_count: repository.stargazers_count,
-          forks_count: repository.forks_count,
-          updated_at: repository.updated_at,
-          private: false
-        }))
+        stats
       },
       null,
       2
@@ -280,4 +185,4 @@ await Promise.all([
   )
 ]);
 
-console.log(`Generated the pixel-profile card and ${selectedRepositories.length} project cards for ${config.username}.`);
+console.log(`Generated the pixel-profile card for ${config.username}.`);

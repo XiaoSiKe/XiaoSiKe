@@ -23,8 +23,13 @@ for (const line of [config.displayName, config.headline, config.motto, config.ro
 }
 
 assert(readme.includes("./assets/github-stats.png"), "README does not reference the generated pixel card.");
-assert(readme.includes("LuciNyan/pixel-profile"), "README must attribute the upstream MIT project.");
-assert(snapshot.repositories.every((repository) => repository.private === false), "Snapshot contains private repository data.");
+assert(readme.includes("# Hi, I'm 01Yang 👋"), "README is missing the requested greeting and wave icon.");
+assert(!("repositories" in snapshot), "Snapshot must not contain the removed project listing.");
+assert(!readme.includes("PROJECTS / 代表项目"), "README still contains the removed projects section.");
+assert(!readme.includes("<table>"), "README still contains the removed project table.");
+assert(!readme.includes("BUILD IN PUBLIC"), "README still contains the removed English footer.");
+assert(!readme.includes("自动更新于"), "README still contains the removed update timestamp.");
+assert(!readme.includes("LuciNyan/pixel-profile"), "README still contains the removed pixel-profile attribution.");
 assert(!readme.includes("01-ai-club-website"), "A private repository leaked into the profile README.");
 
 console.log("All profile checks passed.");

@@ -8,11 +8,11 @@ Design keywords: minimal, editorial, premium, CRT, pixel art, content-first.
 
 ## Information hierarchy
 
-1. Manifesto: “这场 AI 革命，没有人能够置身事外！” — regular weight.
-2. Working philosophy: “以 AI 为引擎，于 零一 之间探索，在 日新 之中迭代！” — bold.
-3. Identity: “AI 独立开发｜零一 AI 日新社 社长” — regular weight.
-4. Live proof: stars, commits, PRs, issues, contributed repositories, and rank.
-5. Selected work: project description and direct repository link.
+1. Greeting: “Hi, I'm 01Yang 👋” — GitHub-native H1 with its built-in divider.
+2. Manifesto: “这场 AI 革命，没有人能够置身事外！” — regular weight.
+3. Working philosophy: “以 AI 为引擎，于 零一 之间探索，在 日新 之中迭代！” — bold.
+4. Identity: “AI 独立开发｜零一 AI 日新社 社长” — regular weight.
+5. Live proof: stars, commits, PRs, issues, contributed repositories, and rank.
 
 ## Tokens
 
@@ -26,10 +26,10 @@ Design keywords: minimal, editorial, premium, CRT, pixel art, content-first.
 ## Guardrails
 
 - Keep the gradient inside the statistics card; the surrounding README stays visually quiet.
-- No emoji as structural icons.
+- The wave emoji is the single explicit decorative identity mark; it is not used as a structural control.
 - No badge wall, typing animation, visitor counter, or dense skill-logo collection.
 - Do not expose private repositories or private contribution details.
 - Keep primary and secondary text at WCAG AA contrast in both themes.
 - Motion is intentionally omitted because the README is a static identity surface.
 - The card includes meaningful alternative text because the reference CRT palette prioritizes fidelity over text contrast.
-- The opening statement is left-aligned and uses three single-spaced lines, matching GitHub's native README rhythm without a decorative heading.
+- The opening statement is left-aligned beneath one native H1. Project tables and generated footer copy are intentionally omitted.

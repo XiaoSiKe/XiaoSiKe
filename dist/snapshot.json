@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-31T01:13:39.745Z",
+  "generatedAt": "2026-08-31T01:20:00.633Z",
   "stats": {
     "name": "01-Yang",
     "username": "XiaoSiKe",
@@ -9,7 +9,7 @@
     "totalPRsMerged": 0,
     "mergedPRsPercentage": 0,
     "totalReviews": 0,
-    "totalCommits": 52,
+    "totalCommits": 53,
     "totalIssues": 0,
     "totalStars": 3,
     "totalDiscussionsStarted": 0,
@@ -17,54 +17,8 @@
     "contributedTo": 0,
     "rank": {
       "level": "C",
-      "percentile": 92.0441164482273,
+      "percentile": 92.00416633247319,
       "score": 8
     }
-  },
-  "repositories": [
-    {
-      "name": "zero-one-api",
-      "description": "零一 API：基于 Sub2API 的定制网关、控制台与运维工具",
-      "html_url": "https://github.com/XiaoSiKe/zero-one-api",
-      "homepage": "https://api.01yapi.com",
-      "language": "Go",
-      "stargazers_count": 1,
-      "forks_count": 0,
-      "updated_at": "2026-08-30T17:07:30Z",
-      "private": false
-    },
-    {
-      "name": "The-25th-Hour",
-      "description": "《第二十五小时：建筑生模拟器》网页游戏源码、素材与开发文档",
-      "html_url": "https://github.com/XiaoSiKe/The-25th-Hour",
-      "homepage": "https://arch.25thgame.vip/game.html",
-      "language": "JavaScript",
-      "stargazers_count": 1,
-      "forks_count": 0,
-      "updated_at": "2026-08-28T08:10:13Z",
-      "private": false
-    },
-    {
-      "name": "01yang-company-website",
-      "description": "福州零一扬网络科技有限公司官网｜AI SaaS、模型 API、软件开发、网络服务与 AI 教育｜React + TypeScript，阿里云独立部署",
-      "html_url": "https://github.com/XiaoSiKe/01yang-company-website",
-      "homepage": "https://www.01yang.space",
-      "language": "TypeScript",
-      "stargazers_count": 1,
-      "forks_count": 0,
-      "updated_at": "2026-08-28T07:32:17Z",
-      "private": false
-    },
-    {
-      "name": "zero-one-api-verifier",
-      "description": "零一智鉴 · API 真测雷达：开源 AI API 中转站风险检测平台",
-      "html_url": "https://github.com/XiaoSiKe/zero-one-api-verifier",
-      "homepage": "https://mix.01yapi.cc",
-      "language": "Python",
-      "stargazers_count": 0,
-      "forks_count": 0,
-      "updated_at": "2026-08-30T17:34:47Z",
-      "private": false
-    }
-  ]
+  }
 }
