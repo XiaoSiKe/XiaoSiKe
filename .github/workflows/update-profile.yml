@@ -3,7 +3,7 @@ name: Refresh pixel profile
 on:
   workflow_dispatch:
   schedule:
-    - cron: "17,47 * * * *"
+    - cron: "17 1 * * *"
   push:
     branches: [main]
     paths:
