@@ -1,10 +1,10 @@
 <!-- Generated automatically. Edit config/profile.json or scripts/generate.mjs instead. -->
 
-<h1 align="center">01-Yang</h1>
-
-<p align="center"><strong>这场 AI 革命，没有人能够置身事外！</strong></p>
-<p align="center">以 AI 为引擎，于 零一 之间探索，在 日新 之中迭代！</p>
-<p align="center"><strong>AI 独立开发｜实践分享｜零一 AI 日新社 社长</strong></p>
+<p>
+“这场 AI 革命，没有人能够置身事外！”<br>
+<strong>“以 AI 为引擎，于 零一 之间探索，在 日新 之中迭代！”</strong><br>
+AI 独立开发｜零一 AI 日新社 社长
+</p>
 
 <br>
 
@@ -47,5 +47,5 @@
 
 <div align="center">
   <sub>BUILD IN PUBLIC · KEEP SHIPPING · STAY CURIOUS</sub><br>
-  <sub>自动更新于 2026/08/31 08:51 (UTC+8) · Pixel card powered by <a href="https://github.com/LuciNyan/pixel-profile">pixel-profile</a></sub>
+  <sub>自动更新于 2026/08/31 09:13 (UTC+8) · Pixel card powered by <a href="https://github.com/LuciNyan/pixel-profile">pixel-profile</a></sub>
 </div>

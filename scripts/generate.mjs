@@ -206,11 +206,11 @@ function renderReadme(repositories, generatedAt) {
 
   return `<!-- Generated automatically. Edit config/profile.json or scripts/generate.mjs instead. -->
 
-<h1 align="center">${escapeHtml(config.displayName)}</h1>
-
-<p align="center"><strong>${escapeHtml(config.headline)}</strong></p>
-<p align="center">${escapeHtml(config.motto)}</p>
-<p align="center"><strong>${escapeHtml(config.role)}</strong></p>
+<p>
+${escapeHtml(config.headline)}<br>
+<strong>${escapeHtml(config.motto)}</strong><br>
+${escapeHtml(config.role)}
+</p>
 
 <br>
 
