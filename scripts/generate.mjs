@@ -43,7 +43,7 @@ async function searchTotal(endpoint, query) {
   return Number(result.total_count || 0);
 }
 
-function calculateRank({ commits, prs, issues, reviews, stars, followers }) {
+function calculatePublicRank({ commits, prs, issues, reviews, stars, followers }) {
   const exponentialCdf = (value) => 1 - 2 ** -value;
   const logNormalCdf = (value) => value / (1 + value);
   const score =
@@ -88,22 +88,18 @@ async function collectPublicStats(user, repositories) {
     avatarUrl: user.avatar_url,
     bio: user.bio || "",
     totalPRs,
-    totalPRsMerged: 0,
-    mergedPRsPercentage: 0,
-    totalReviews: 0,
     totalCommits,
     totalIssues,
     totalStars,
-    totalDiscussionsStarted: 0,
-    totalDiscussionsAnswered: 0,
     contributedTo: contributedRepositories.size,
     rank: null
   };
-  stats.rank = calculateRank({
+  stats.rank = calculatePublicRank({
     commits: stats.totalCommits,
     prs: stats.totalPRs,
     issues: stats.totalIssues,
-    reviews: stats.totalReviews,
+    // Public REST endpoints do not expose review-contribution totals.
+    reviews: 0,
     stars: stats.totalStars,
     followers: Number(user.followers || 0)
   });
@@ -134,7 +130,7 @@ function escapeHtml(value) {
 function renderReadme() {
   return `<!-- Generated automatically. Edit config/profile.json or scripts/generate.mjs instead. -->
 
-# Hi, I'm 01Yang 👋
+# ${config.heading}
 
 <p>${escapeHtml(config.motto)}</p>
 

@@ -1,19 +1,12 @@
 {
   "username": "XiaoSiKe",
   "displayName": "01-Yang",
-  "brand": "零一 AI 日新社",
+  "heading": "Hi, I'm 01Yang 👋",
   "motto": "“以 AI 为引擎，于 零一 之间探索，在 日新 之中迭代！”",
-  "featuredRepositories": [
-    "zero-one-api",
-    "The-25th-Hour",
-    "01yang-company-website"
-  ],
   "excludeRepositories": [
     "XiaoSiKe",
     "pixel-profile"
   ],
-  "repositoryLimit": 6,
-  "refreshTimezone": "Asia/Shanghai",
   "card": {
     "background": "linear-gradient(to bottom right, #2aeeff, #5580eb)",
     "color": "#FFFFFF",

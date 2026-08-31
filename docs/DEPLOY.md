@@ -12,6 +12,8 @@ The workflow only needs the repository-scoped `GITHUB_TOKEN` supplied by GitHub 
 
 Repository totals are fetched through public GitHub endpoints for the statistics card. Private repository names, descriptions, and project listings are never written to the README or snapshot.
 
+Only metrics actually returned by those public endpoints are written to the snapshot. The displayed rank is a public-data estimate: unavailable private activity and review totals are not inferred.
+
 ## Local commands
 
 ```bash
@@ -19,4 +21,4 @@ GH_TOKEN="..." npm run generate
 npm test
 ```
 
-Edit copy, featured repositories, limits, or card colors in `config/profile.json`; generated README and PNG files should not be edited by hand.
+Edit the heading, motto, repository exclusions, or card colors in `config/profile.json`; generated README and PNG files should not be edited by hand.
