@@ -9,10 +9,8 @@ Design keywords: minimal, editorial, premium, CRT, pixel art, content-first.
 ## Information hierarchy
 
 1. Greeting: “Hi, I'm 01Yang 👋” — GitHub-native H1 with its built-in divider.
-2. Manifesto: “这场 AI 革命，没有人能够置身事外！” — regular weight.
-3. Working philosophy: “以 AI 为引擎，于 零一 之间探索，在 日新 之中迭代！” — bold.
-4. Identity: “AI 独立开发｜零一 AI 日新社 社长” — regular weight.
-5. Live proof: stars, commits, PRs, issues, contributed repositories, and rank.
+2. Working philosophy: “以 AI 为引擎，于 零一 之间探索，在 日新 之中迭代！” — regular weight.
+3. Live proof: stars, commits, PRs, issues, contributed repositories, and rank.
 
 ## Tokens
 
@@ -32,4 +30,4 @@ Design keywords: minimal, editorial, premium, CRT, pixel art, content-first.
 - Keep primary and secondary text at WCAG AA contrast in both themes.
 - Motion is intentionally omitted because the README is a static identity surface.
 - The card includes meaningful alternative text because the reference CRT palette prioritizes fidelity over text contrast.
-- The opening statement is left-aligned beneath one native H1. Project tables and generated footer copy are intentionally omitted.
+- One concise philosophy line sits beneath the native H1. Project tables and generated footer copy are intentionally omitted.

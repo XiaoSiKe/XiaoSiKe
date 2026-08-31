@@ -136,11 +136,7 @@ function renderReadme() {
 
 # Hi, I'm 01Yang 👋
 
-<p>
-${escapeHtml(config.headline)}<br>
-<strong>${escapeHtml(config.motto)}</strong><br>
-${escapeHtml(config.role)}
-</p>
+<p>${escapeHtml(config.motto)}</p>
 
 <br>
 
