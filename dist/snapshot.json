@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-08-31T00:48:41.244Z",
+  "generatedAt": "2026-08-31T00:51:28.804Z",
   "stats": {
     "name": "01-Yang",
     "username": "XiaoSiKe",
-    "avatarUrl": "https://avatars.githubusercontent.com/u/293472279?s=280&u=da7f5f04cd1c7edd2c84c53c248b3ca5d8749dcc&v=4",
+    "avatarUrl": "https://avatars.githubusercontent.com/u/293472279?v=4",
     "bio": "",
     "totalPRs": 12,
     "totalPRsMerged": 0,
     "mergedPRsPercentage": 0,
     "totalReviews": 0,
-    "totalCommits": 50,
+    "totalCommits": 51,
     "totalIssues": 0,
     "totalStars": 3,
     "totalDiscussionsStarted": 0,
@@ -17,7 +17,7 @@
     "contributedTo": 0,
     "rank": {
       "level": "C",
-      "percentile": 92.12434974450173,
+      "percentile": 92.08417748291704,
       "score": 7.9
     }
   },
