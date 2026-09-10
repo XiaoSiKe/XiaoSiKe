@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-09-09T06:02:33.035Z",
+  "generatedAt": "2026-09-10T06:02:19.736Z",
   "stats": {
     "name": "01-Yang",
     "username": "XiaoSiKe",
     "avatarUrl": "https://avatars.githubusercontent.com/u/293472279?v=4",
     "bio": "AI 独立开发｜零一 AI 日新社 社长",
-    "totalPRs": 91,
-    "totalCommits": 361,
+    "totalPRs": 100,
+    "totalCommits": 392,
     "totalIssues": 0,
-    "totalStars": 11,
+    "totalStars": 14,
     "contributedTo": 0,
     "rank": {
-      "level": "B-",
-      "percentile": 64.77113346539537,
-      "score": 35.2
+      "level": "B",
+      "percentile": 62.15535146883966,
+      "score": 37.8
     }
   }
 }
