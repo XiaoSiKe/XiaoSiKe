@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-27T06:38:43.577Z",
+  "generatedAt": "2026-09-28T07:01:25.109Z",
   "stats": {
     "name": "01-Yang",
     "username": "XiaoSiKe",
@@ -8,12 +8,12 @@
     "totalPRs": 123,
     "totalCommits": 478,
     "totalIssues": 2,
-    "totalStars": 16,
+    "totalStars": 17,
     "contributedTo": 0,
     "rank": {
       "level": "B",
-      "percentile": 57.38651284613627,
-      "score": 42.6
+      "percentile": 57.009609484158275,
+      "score": 43
     }
   }
 }
