@@ -2,8 +2,8 @@
 
 # Hi, I'm 01Yang 👋
 
-<p><strong>从零到一，让技术进步成为每个人的机会！</strong><br>
-<strong>From Zero to One, Turning Technology into Opportunity for Everyone！</strong></p>
+<h3><strong>从零到一，让技术进步成为每个人的机会！</strong><br>
+<strong>From Zero to One, Turning Technology into Opportunity for Everyone！</strong></h3>
 
 <br>
 

@@ -134,8 +134,8 @@ function renderReadme(repositories) {
 
 # ${config.heading}
 
-<p><strong>${escapeHtml(config.motto)}</strong><br>
-<strong>${escapeHtml(config.mottoEnglish)}</strong></p>
+<h3><strong>${escapeHtml(config.motto)}</strong><br>
+<strong>${escapeHtml(config.mottoEnglish)}</strong></h3>
 
 <br>
 
