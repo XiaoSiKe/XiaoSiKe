@@ -2,7 +2,7 @@ import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
 import { renderStats } from "pixel-profile";
-import { renderRepositorySvg, selectRepositories } from "./repositories.mjs";
+import { renderRepositoryList, renderRepositorySvg, selectRepositories } from "./repositories.mjs";
 
 const root = process.cwd();
 const config = JSON.parse(await readFile(path.join(root, "config", "profile.json"), "utf8"));
@@ -130,13 +130,25 @@ function escapeHtml(value) {
     .replaceAll("'", "&#39;");
 }
 
-function renderReadme() {
+function renderReadme(repositories) {
   return `<!-- Generated automatically. Edit config/profile.json or config/introduction.md instead. -->
 
 <h3><strong>${escapeHtml(config.motto)}</strong><br>
 <strong>${escapeHtml(config.mottoEnglish)}</strong></h3>
 
 ${introduction.trim()}
+
+<br>
+
+<div align="center">
+  <img src="./assets/github-stats.png" width="100%" alt="${escapeHtml(config.username)} 的像素风 GitHub 数据卡，包含 Star、提交、PR、Issue、贡献仓库与等级统计">
+</div>
+
+### Repositories
+
+${renderRepositoryList(repositories)}
+
+[View all repositories →](https://github.com/${encodeURIComponent(config.username)}?tab=repositories)
 `;
 }
 
@@ -174,7 +186,7 @@ const card = await renderStats(stats, {
   includeAllCommits: false,
   isFastMode: true
 });
-const readme = renderReadme();
+const readme = renderReadme(listedRepositories);
 
 await mkdir(path.join(root, "assets"), { recursive: true });
 await mkdir(path.join(root, "dist"), { recursive: true });
@@ -209,4 +221,4 @@ await Promise.all([
   )
 ]);
 
-console.log(`Generated the club introduction and supporting profile assets for ${config.username}.`);
+console.log(`Generated the club introduction, statistics card, and ${listedRepositories.length} repository rows for ${config.username}.`);

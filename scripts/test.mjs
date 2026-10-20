@@ -34,7 +34,12 @@ assert(clubPoster.subarray(0, 8).equals(pngSignature), "The club poster is not a
 assert(readme.includes("./assets/01-ai-club.png"), "README must reference the local club poster.");
 assert(!readme.includes("feishu.cn"), "README must not depend on the temporary Feishu image link.");
 assert(!readme.includes("这句话加粗") && !readme.includes("&#x20;"), "Editing instructions and pasted whitespace entities must not appear in the profile.");
-assert(!readme.includes("Hi, I'm") && !readme.includes("./assets/github-stats.png") && !readme.includes("### Repositories"), "The club introduction must replace the previous profile content.");
+assert(!readme.includes("Hi, I'm"), "README must start with the bilingual motto.");
+const posterPosition = readme.indexOf("./assets/01-ai-club.png");
+const statisticsPosition = readme.indexOf("./assets/github-stats.png");
+const repositoriesPosition = readme.indexOf("### Repositories");
+assert(statisticsPosition > posterPosition && repositoriesPosition > statisticsPosition, "The profile must retain the club introduction and poster, then the statistics card and vertical repository list.");
+assert(readme.includes(`https://github.com/${config.username}?tab=repositories`), "README must link to the complete repository tab.");
 assert(!readme.includes("这场 AI 革命"), "README still contains the removed manifesto line.");
 assert(!readme.includes("AI 独立开发｜零一 AI 日新社 社长"), "README still contains the removed role line.");
 assert(readme.includes(`<strong>${config.motto}</strong>`), "The Chinese motto must be bold.");
@@ -45,11 +50,13 @@ assert(snapshot.repositories.length > 0 && snapshot.repositories.length <= confi
 for (const [index, repository] of snapshot.repositories.entries()) {
   assert(!config.excludeRepositories.includes(repository.name), "An excluded repository appears in the list.");
   assert(repository.url === `https://github.com/${config.username}/${repository.name}`, "Repository link is invalid.");
+  assert(readme.includes(`href="${repository.url}"`), "Every listed repository must have a clickable row in the README.");
   assert(repository.weeklyCommits === null || repository.weeklyCommits.every((count) => Number.isFinite(count) && count >= 0), "Commit activity contains invalid values.");
   for (const theme of ["dark", "light"]) {
     for (const suffix of ["", "-mobile"]) {
       const asset = `./assets/repositories/${index + 1}-${theme}${suffix}.svg`;
       const svg = await readFile(path.join(root, asset), "utf8");
+      assert(readme.includes(asset), `README must display the generated repository source: ${asset}`);
       assert(svg.startsWith('<svg xmlns="http://www.w3.org/2000/svg"'), `Invalid SVG: ${asset}`);
       assert(svg.includes('aria-labelledby="title description"'), `SVG is missing accessible labels: ${asset}`);
     }
