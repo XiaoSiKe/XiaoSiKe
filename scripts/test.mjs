@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
+import { renderRepositorySvg, selectRepositories } from "./repositories.mjs";
 
 const root = process.cwd();
 const config = JSON.parse(await readFile(path.join(root, "config", "profile.json"), "utf8"));
@@ -21,7 +22,7 @@ assert(card.readUInt32BE(16) === 1226, "The pixel-profile card must be 1226 px w
 assert(card.readUInt32BE(20) === 430, "The pixel-profile card must be 430 px high.");
 assert(card.length > 50_000, "The generated stats card is unexpectedly small.");
 
-for (const line of [config.displayName, config.heading, config.motto]) {
+for (const line of [config.displayName, config.heading, config.motto, config.mottoEnglish]) {
   assert(readme.includes(line), `README is missing: ${line}`);
 }
 
@@ -30,7 +31,46 @@ assert(readme.includes("./assets/github-stats.png"), "README does not reference 
 assert(readme.includes(`# ${config.heading}`), "README is missing the configured heading.");
 assert(!readme.includes("这场 AI 革命"), "README still contains the removed manifesto line.");
 assert(!readme.includes("AI 独立开发｜零一 AI 日新社 社长"), "README still contains the removed role line.");
-assert(!("repositories" in snapshot), "Snapshot must not contain the removed project listing.");
+assert(readme.includes(`<strong>${config.motto}</strong>`), "The Chinese motto must be bold.");
+assert(readme.includes(`<strong>${config.mottoEnglish}</strong>`), "The English motto must be bold.");
+assert(!readme.includes("以 AI 为引擎"), "README still contains the old motto.");
+assert(readme.includes("### Repositories"), "README is missing the repository list.");
+assert(readme.includes(`https://github.com/${config.username}?tab=repositories`), "README is missing the link to all repositories.");
+assert(Number.isInteger(config.repositoryLimit) && config.repositoryLimit > 0, "Repository limit must be a positive integer.");
+assert(snapshot.repositories.length > 0 && snapshot.repositories.length <= config.repositoryLimit, "Generated repository count is invalid.");
+for (const [index, repository] of snapshot.repositories.entries()) {
+  assert(!config.excludeRepositories.includes(repository.name), "An excluded repository appears in the list.");
+  assert(repository.url === `https://github.com/${config.username}/${repository.name}`, "Repository link is invalid.");
+  assert(readme.includes(`href="${repository.url}"`), "A repository row is not clickable.");
+  assert(repository.weeklyCommits === null || repository.weeklyCommits.every((count) => Number.isFinite(count) && count >= 0), "Commit activity contains invalid values.");
+  for (const theme of ["dark", "light"]) {
+    for (const suffix of ["", "-mobile"]) {
+      const asset = `./assets/repositories/${index + 1}-${theme}${suffix}.svg`;
+      const svg = await readFile(path.join(root, asset), "utf8");
+      assert(readme.includes(asset), `README is missing a theme or mobile source: ${asset}`);
+      assert(svg.startsWith('<svg xmlns="http://www.w3.org/2000/svg"'), `Invalid SVG: ${asset}`);
+      assert(svg.includes('aria-labelledby="title description"'), `SVG is missing accessible labels: ${asset}`);
+    }
+  }
+}
+
+const fixture = (name, privateValue, updatedAt) => ({ name, private: privateValue, updated_at: updatedAt });
+const selected = selectRepositories([
+  fixture("private-fixture", true, "2026-10-20"),
+  fixture("excluded-fixture", false, "2026-10-19"),
+  fixture("old-public", false, "2026-10-01"),
+  fixture("latest-public", false, "2026-10-18"),
+  fixture("middle-public", false, "2026-10-10")
+], { excludeRepositories: ["excluded-fixture"], repositoryLimit: 2 });
+assert(selected.map((repository) => repository.name).join(",") === "latest-public,middle-public", "Repository selection must exclude private repositories, respect exclusions, sort by update, and apply the limit.");
+const svgFixture = { ...snapshot.repositories[0], name: 'long-repository-name-'.repeat(4), description: '<script>alert("test")</script> & 中文简介'.repeat(8), weeklyCommits: null };
+const mobileSvg = renderRepositorySvg(svgFixture, { compact: true });
+assert(!mobileSvg.includes("<script>"), "Repository content must be XML-escaped.");
+assert(mobileSvg.includes("&lt;script&gt;"), "Escaped descriptions must remain readable.");
+assert(mobileSvg.includes("Activity unavailable"), "Missing activity must not become a fabricated sparkline.");
+assert(!mobileSvg.includes("<polyline"), "Missing activity must not draw a sparkline.");
+const zeroActivity = renderRepositorySvg({ ...svgFixture, weeklyCommits: Array(52).fill(0) });
+assert(zeroActivity.includes("<polyline") && !zeroActivity.includes("NaN"), "Zero commits must render a valid flat sparkline.");
 for (const key of [
   "totalPRsMerged",
   "mergedPRsPercentage",
@@ -40,7 +80,7 @@ for (const key of [
 ]) {
   assert(!(key in snapshot.stats), `Snapshot contains unsupported metric: ${key}`);
 }
-for (const key of ["brand", "featuredRepositories", "repositoryLimit", "refreshTimezone"]) {
+for (const key of ["brand", "featuredRepositories", "refreshTimezone"]) {
   assert(!(key in config), `Config contains unused field: ${key}`);
 }
 assert(!readme.includes("PROJECTS / 代表项目"), "README still contains the removed projects section.");
@@ -48,7 +88,6 @@ assert(!readme.includes("<table>"), "README still contains the removed project t
 assert(!readme.includes("BUILD IN PUBLIC"), "README still contains the removed English footer.");
 assert(!readme.includes("自动更新于"), "README still contains the removed update timestamp.");
 assert(!readme.includes("LuciNyan/pixel-profile"), "README still contains the removed pixel-profile attribution.");
-assert(!readme.includes("01-ai-club-website"), "A private repository leaked into the profile README.");
 assert(workflow.includes('cron: "17 1 * * *"'), "Workflow must run daily at 01:17 UTC.");
 assert(
   deployGuide.includes("once per day at 09:17 Asia/Shanghai (01:17 UTC)"),

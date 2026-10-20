@@ -1,7 +1,8 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
 import { renderStats } from "pixel-profile";
+import { renderRepositoryList, renderRepositorySvg, selectRepositories } from "./repositories.mjs";
 
 const root = process.cwd();
 const config = JSON.parse(await readFile(path.join(root, "config", "profile.json"), "utf8"));
@@ -13,13 +14,14 @@ const baseHeaders = {
   "X-GitHub-Api-Version": "2022-11-28"
 };
 
-async function github(pathname) {
+async function github(pathname, { optional = false } = {}) {
   let response = await fetch(`https://api.github.com${pathname}`, {
     headers: { ...baseHeaders, ...(token ? { Authorization: `Bearer ${token}` } : {}) }
   });
   if (response.status === 403 && token) {
     response = await fetch(`https://api.github.com${pathname}`, { headers: baseHeaders });
   }
+  if (optional && (!response.ok || response.status === 202 || response.status === 204)) return null;
   if (!response.ok) {
     const body = await response.text();
     throw new Error(`GitHub API ${response.status}: ${body.slice(0, 240)}`);
@@ -127,18 +129,25 @@ function escapeHtml(value) {
     .replaceAll("'", "&#39;");
 }
 
-function renderReadme() {
+function renderReadme(repositories) {
   return `<!-- Generated automatically. Edit config/profile.json or scripts/generate.mjs instead. -->
 
 # ${config.heading}
 
-<p>${escapeHtml(config.motto)}</p>
+<p><strong>${escapeHtml(config.motto)}</strong><br>
+<strong>${escapeHtml(config.mottoEnglish)}</strong></p>
 
 <br>
 
 <div align="center">
   <img src="./assets/github-stats.png" width="100%" alt="${escapeHtml(config.displayName)} 的像素风 GitHub 数据卡，包含 Star、提交、PR、Issue、贡献仓库与等级统计">
 </div>
+
+### Repositories
+
+${renderRepositoryList(repositories)}
+
+[View all repositories →](https://github.com/${encodeURIComponent(config.username)}?tab=repositories)
 `;
 }
 
@@ -147,6 +156,26 @@ const [user, repositories] = await Promise.all([
   github(`/users/${encodeURIComponent(config.username)}`),
   getPublicRepositories(config.username)
 ]);
+const listedRepositories = await Promise.all(
+  selectRepositories(repositories, config).map(async (repository) => {
+    const participation = await github(
+      `/repos/${encodeURIComponent(config.username)}/${encodeURIComponent(repository.name)}/stats/participation`,
+      { optional: true }
+    ).catch(() => null);
+    return {
+      name: repository.name,
+      url: repository.html_url,
+      description: repository.description || "",
+      language: repository.language,
+      stars: repository.stargazers_count,
+      forks: repository.forks_count,
+      issues: repository.open_issues_count,
+      license: repository.license?.spdx_id === "NOASSERTION" ? null : repository.license?.spdx_id,
+      updatedAt: repository.updated_at,
+      weeklyCommits: Array.isArray(participation?.all) ? participation.all : null
+    };
+  })
+);
 const stats = await collectPublicStats(user, repositories);
 const card = await renderStats(stats, {
   background: config.card.background,
@@ -156,11 +185,24 @@ const card = await renderStats(stats, {
   includeAllCommits: false,
   isFastMode: true
 });
-const readme = renderReadme();
+const readme = renderReadme(listedRepositories);
 
 await mkdir(path.join(root, "assets"), { recursive: true });
 await mkdir(path.join(root, "dist"), { recursive: true });
+const repositoryAssets = path.join(root, "assets", "repositories");
+await rm(repositoryAssets, { recursive: true, force: true });
+await mkdir(repositoryAssets, { recursive: true });
 await Promise.all([
+  ...listedRepositories.flatMap((repository, index) =>
+    ["dark", "light"].flatMap((theme) =>
+      [false, true].map((compact) =>
+        writeFile(
+          path.join(repositoryAssets, `${index + 1}-${theme}${compact ? "-mobile" : ""}.svg`),
+          renderRepositorySvg(repository, { theme, compact })
+        )
+      )
+    )
+  ),
   writeFile(path.join(root, "assets", "github-stats.png"), card),
   writeFile(path.join(root, "README.md"), readme),
   writeFile(path.join(root, "dist", "README.md"), readme),
@@ -169,7 +211,8 @@ await Promise.all([
     `${JSON.stringify(
       {
         generatedAt,
-        stats
+        stats,
+        repositories: listedRepositories
       },
       null,
       2
@@ -177,4 +220,4 @@ await Promise.all([
   )
 ]);
 
-console.log(`Generated the pixel-profile card for ${config.username}.`);
+console.log(`Generated the pixel-profile card and ${listedRepositories.length} repository rows for ${config.username}.`);

@@ -9,8 +9,9 @@ Design keywords: minimal, editorial, premium, CRT, pixel art, content-first.
 ## Information hierarchy
 
 1. Greeting: “Hi, I'm 01Yang 👋” — GitHub-native H1 with its built-in divider.
-2. Working philosophy: “以 AI 为引擎，于 零一 之间探索，在 日新 之中迭代！” — regular weight.
+2. Working philosophy, two bold lines: “从零到一，让技术进步成为每个人的机会！” and “From Zero to One, Turning Technology into Opportunity for Everyone！”.
 3. Live proof: stars, commits, PRs, issues, contributed repositories, and rank.
+4. Repositories: eight recently updated public repositories in a vertical list inspired by GitHub's native repository rows, with blue names, muted metadata, thin borders, and green weekly commit sparklines.
 
 ## Tokens
 
@@ -19,6 +20,8 @@ Design keywords: minimal, editorial, premium, CRT, pixel art, content-first.
 - Dark background `#0D1117`; primary text `#F0F6FC`; secondary text `#B7C0CC`.
 - Light background `#FFFFFF`; primary text `#1F2328`; secondary text `#59636E`.
 - The statistics card uses the reference cyan-to-blue gradient `#2aeeff → #5580eb` with the original curved-screen shader.
+- Repository rows use 6 px corners, GitHub blue `#4493F8` / `#0969DA`, and activity green `#3FB950` / `#1A7F37` in dark / light mode.
+- Each repository links to its source. Picture sources select light or dark assets and a taller mobile layout below 768 px, with wrapping for long names and Chinese descriptions.
 - Typography uses the system sans stack for Chinese clarity and the system monospace stack for labels and data.
 
 ## Guardrails
@@ -30,4 +33,5 @@ Design keywords: minimal, editorial, premium, CRT, pixel art, content-first.
 - Keep primary and secondary text at WCAG AA contrast in both themes.
 - Motion is intentionally omitted because the README is a static identity surface.
 - The card includes meaningful alternative text because the reference CRT palette prioritizes fidelity over text contrast.
-- One concise philosophy line sits beneath the native H1. Project tables and generated footer copy are intentionally omitted.
+- The bilingual philosophy sits beneath the native H1. The repository list follows the statistics card and ends with a link to the complete GitHub repository tab.
+- Sparklines only render real public weekly commit counts; an unavailable response gets an explicit text state. Repository cards provide accessible titles, descriptions, and image alternative text.
