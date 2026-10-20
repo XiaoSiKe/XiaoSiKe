@@ -5,6 +5,8 @@ import { renderRepositorySvg, selectRepositories } from "./repositories.mjs";
 
 const root = process.cwd();
 const config = JSON.parse(await readFile(path.join(root, "config", "profile.json"), "utf8"));
+const introduction = await readFile(path.join(root, "config", "introduction.md"), "utf8");
+const clubPoster = await readFile(path.join(root, "assets", "01-ai-club.png"));
 const readme = await readFile(path.join(root, "README.md"), "utf8");
 const distReadme = await readFile(path.join(root, "dist", "README.md"), "utf8");
 const card = await readFile(path.join(root, "assets", "github-stats.png"));
@@ -22,32 +24,32 @@ assert(card.readUInt32BE(16) === 1226, "The pixel-profile card must be 1226 px w
 assert(card.readUInt32BE(20) === 430, "The pixel-profile card must be 430 px high.");
 assert(card.length > 50_000, "The generated stats card is unexpectedly small.");
 
-for (const line of [config.displayName, config.heading, config.motto, config.mottoEnglish]) {
+for (const line of [config.motto, config.mottoEnglish]) {
   assert(readme.includes(line), `README is missing: ${line}`);
 }
 
 assert(readme === distReadme, "README.md and dist/README.md must be identical.");
-assert(readme.includes("./assets/github-stats.png"), "README does not reference the generated pixel card.");
-assert(readme.includes(`# ${config.heading}`), "README is missing the configured heading.");
+assert(readme.includes(introduction.trim()), "README must preserve the complete club introduction.");
+assert(clubPoster.subarray(0, 8).equals(pngSignature), "The club poster is not a valid PNG.");
+assert(readme.includes("./assets/01-ai-club.png"), "README must reference the local club poster.");
+assert(!readme.includes("feishu.cn"), "README must not depend on the temporary Feishu image link.");
+assert(!readme.includes("这句话加粗") && !readme.includes("&#x20;"), "Editing instructions and pasted whitespace entities must not appear in the profile.");
+assert(!readme.includes("Hi, I'm") && !readme.includes("./assets/github-stats.png") && !readme.includes("### Repositories"), "The club introduction must replace the previous profile content.");
 assert(!readme.includes("这场 AI 革命"), "README still contains the removed manifesto line.");
 assert(!readme.includes("AI 独立开发｜零一 AI 日新社 社长"), "README still contains the removed role line.");
 assert(readme.includes(`<strong>${config.motto}</strong>`), "The Chinese motto must be bold.");
 assert(readme.includes(`<strong>${config.mottoEnglish}</strong>`), "The English motto must be bold.");
 assert(!readme.includes("以 AI 为引擎"), "README still contains the old motto.");
-assert(readme.includes("### Repositories"), "README is missing the repository list.");
-assert(readme.includes(`https://github.com/${config.username}?tab=repositories`), "README is missing the link to all repositories.");
 assert(Number.isInteger(config.repositoryLimit) && config.repositoryLimit > 0, "Repository limit must be a positive integer.");
 assert(snapshot.repositories.length > 0 && snapshot.repositories.length <= config.repositoryLimit, "Generated repository count is invalid.");
 for (const [index, repository] of snapshot.repositories.entries()) {
   assert(!config.excludeRepositories.includes(repository.name), "An excluded repository appears in the list.");
   assert(repository.url === `https://github.com/${config.username}/${repository.name}`, "Repository link is invalid.");
-  assert(readme.includes(`href="${repository.url}"`), "A repository row is not clickable.");
   assert(repository.weeklyCommits === null || repository.weeklyCommits.every((count) => Number.isFinite(count) && count >= 0), "Commit activity contains invalid values.");
   for (const theme of ["dark", "light"]) {
     for (const suffix of ["", "-mobile"]) {
       const asset = `./assets/repositories/${index + 1}-${theme}${suffix}.svg`;
       const svg = await readFile(path.join(root, asset), "utf8");
-      assert(readme.includes(asset), `README is missing a theme or mobile source: ${asset}`);
       assert(svg.startsWith('<svg xmlns="http://www.w3.org/2000/svg"'), `Invalid SVG: ${asset}`);
       assert(svg.includes('aria-labelledby="title description"'), `SVG is missing accessible labels: ${asset}`);
     }
