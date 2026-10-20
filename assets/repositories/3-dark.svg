@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="896" height="124" viewBox="0 0 896 124" role="img" aria-labelledby="title description">
+  <title id="title">zero-one-api-verifier · Public</title>
+  <desc id="description">零一智鉴 · API 真测雷达：开源 AI API 中转站风险检测平台. Python · 1 stars · 0 forks · 0 open issues and pull requests. Updated Oct 16, 2026. Weekly commit activity over the past year.</desc>
+  <rect x=".5" y=".5" width="895" height="123" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif" fill="#9198a1" color="#9198a1">
+    <text x="16" y="32" fill="#4493f8" font-size="16" font-weight="600">zero-one-api-verifier</text>
+    <rect x="216.1600000000001" y="18" width="46" height="19" rx="9.5" fill="none" stroke="#30363d"/>
+    <text x="239.1600000000001" y="32" text-anchor="middle" font-size="12">Public</text>
+    <text x="16" y="60" font-size="14">零一智鉴 · API 真测雷达：开源 AI API 中转站风险检测平台</text>
+    <g transform="translate(16,96)"><circle cx="7" cy="-4" r="5.5" fill="#3572a5"/><text x="21" font-size="12">Python</text></g><g transform="translate(96.32,96)"><g transform="translate(0,-12)" fill="none" stroke="currentColor" stroke-width="1.2"><path d="m8 1.5 2 4.2 4.6.7-3.3 3.3.8 4.6L8 12.1l-4.1 2.2.8-4.6L1.4 6.4l4.6-.7Z"/></g><text x="21" font-size="12">1</text></g><g transform="translate(143.04,96)"><g transform="translate(0,-12)" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="4" cy="3" r="1.7"/><circle cx="12" cy="3" r="1.7"/><circle cx="8" cy="13" r="1.7"/><path d="M4 5v2c0 2 4 1 4 4m4-6v2c0 2-4 1-4 4"/></g><text x="21" font-size="12">0</text></g><g transform="translate(189.76,96)"><g transform="translate(0,-12)" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r=".9" fill="currentColor"/></g><text x="21" font-size="12">0</text></g>
+    <text x="236.48" y="96" font-size="11">Updated Oct 16, 2026</text>
+    <g><title>Weekly commits over the past year</title><polyline points="728.0,80.0 731.0,80.0 734.0,80.0 736.9,80.0 739.9,80.0 742.9,80.0 745.9,80.0 748.9,80.0 751.8,80.0 754.8,80.0 757.8,80.0 760.8,80.0 763.8,80.0 766.7,80.0 769.7,80.0 772.7,80.0 775.7,80.0 778.7,80.0 781.6,80.0 784.6,80.0 787.6,80.0 790.6,80.0 793.6,80.0 796.5,80.0 799.5,80.0 802.5,80.0 805.5,80.0 808.5,72.6 811.5,42.0 814.4,80.0 817.4,78.9 820.4,80.0 823.4,80.0 826.4,77.9 829.3,80.0 832.3,80.0 835.3,80.0 838.3,80.0 841.3,80.0 844.2,80.0 847.2,80.0 850.2,80.0 853.2,76.8 856.2,72.6 859.1,53.6 862.1,80.0 865.1,80.0 868.1,80.0 871.1,70.5 874.0,80.0 877.0,80.0 880.0,77.9" fill="none" stroke="#3fb950" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/></g>
+  </g>
+</svg>

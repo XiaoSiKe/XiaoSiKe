@@ -2,7 +2,9 @@
   "username": "XiaoSiKe",
   "displayName": "01-Yang",
   "heading": "Hi, I'm 01Yang 👋",
-  "motto": "“以 AI 为引擎，于 零一 之间探索，在 日新 之中迭代！”",
+  "motto": "从零到一，让技术进步成为每个人的机会！",
+  "mottoEnglish": "From Zero to One, Turning Technology into Opportunity for Everyone！",
+  "repositoryLimit": 8,
   "excludeRepositories": [
     "XiaoSiKe",
     "pixel-profile"
