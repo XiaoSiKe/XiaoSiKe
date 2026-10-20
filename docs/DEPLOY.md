@@ -8,7 +8,7 @@ The **Refresh pixel profile** workflow runs once per day at 09:17 Asia/Shanghai 
 
 The poster is stored at `assets/01-ai-club.png`; the README references that local image rather than the expiring Feishu download link. GitHub's native Markdown handles typography, quote blocks, light and dark themes, and responsive wrapping. The bilingual motto uses a bold H3 at approximately 20 px.
 
-The existing data pipeline continues to refresh the supporting `pixel-profile@1.3.0` statistics card, repository SVG assets, and snapshot independently. These supporting assets are available in the repository; the visible README is the club introduction.
+The data pipeline refreshes the original `pixel-profile@1.3.0` statistics card, repository SVG assets, and snapshot. After the introduction and poster, the visible README displays the statistics card and eight recently updated public repositories as clickable vertical rows with real weekly commit curves. Repository rows provide light, dark, and mobile picture sources. A final link opens GitHub's complete repository tab.
 
 The workflow only needs the repository-scoped `GITHUB_TOKEN` supplied by GitHub Actions. No personal token is stored as a repository secret.
 

@@ -114,3 +114,18 @@ export function renderRepositorySvg(repository, { theme = "dark", compact = fals
 </svg>
 `;
 }
+
+export function renderRepositoryList(repositories) {
+  return repositories.map((repository, index) => {
+    const asset = `./assets/repositories/${index + 1}`;
+    const alt = `${repository.name} · Public — ${repository.description} — ${repository.language || ""} · ${repository.stars} stars · ${repository.forks} forks · ${repository.issues} open issues and pull requests`;
+    return `<a href="${escape(repository.url)}">
+  <picture>
+    <source media="(prefers-color-scheme: dark) and (max-width: 767px)" srcset="${asset}-dark-mobile.svg">
+    <source media="(max-width: 767px)" srcset="${asset}-light-mobile.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="${asset}-dark.svg">
+    <img src="${asset}-light.svg" width="100%" alt="${escape(alt)}">
+  </picture>
+</a>`;
+  }).join("\n");
+}

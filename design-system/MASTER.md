@@ -12,6 +12,8 @@ Design keywords: community, learning, public service, practice, content-first.
 2. Club identity, founding date, and the founder's introduction.
 3. Founding purpose: a new approach to university learning, public-interest teaching, and practical progress.
 4. Invitation: daily improvement, the supplied WeChat article, and the original club poster with its joining QR code.
+5. The original pixel-profile statistics card.
+6. Eight recently updated public repositories in a vertical list inspired by GitHub's repository rows, with blue names, muted metadata, thin borders, and real green weekly commit sparklines.
 
 ## Tokens
 
@@ -19,6 +21,8 @@ Design keywords: community, learning, public service, practice, content-first.
 - Lead paragraphs and the supplied quote text stay bold as requested.
 - Natural line wrapping supports narrow screens; the bilingual motto keeps its explicit line break.
 - The poster uses `assets/01-ai-club.png`, with descriptive alternative text and its original resolution for QR-code clarity.
+- The statistics card uses the original cyan-to-blue CRT palette. Repository rows use GitHub's light and dark colors with green activity curves.
+- Repository picture sources select desktop or mobile variants and the matching light or dark theme. Each row links to its repository.
 
 ## Guardrails
 
@@ -26,4 +30,4 @@ Design keywords: community, learning, public service, practice, content-first.
 - Apply editing notes as formatting; omit parenthetical instructions and copied whitespace entities from the rendered text.
 - Keep the poster in the repository so the profile remains independent of the temporary Feishu download URL.
 - `config/introduction.md` is the body source; `config/profile.json` supplies the two motto lines.
-- Supporting GitHub statistics and repository assets continue to be generated independently of the visible introduction.
+- The complete visible profile always includes the introduction, poster, statistics card, and vertical repository list, in that order. Text changes must preserve the statistics and repository sections.
