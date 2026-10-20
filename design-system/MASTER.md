@@ -9,7 +9,7 @@ Design keywords: minimal, editorial, premium, CRT, pixel art, content-first.
 ## Information hierarchy
 
 1. Greeting: “Hi, I'm 01Yang 👋” — GitHub-native H1 with its built-in divider.
-2. Working philosophy, two bold lines: “从零到一，让技术进步成为每个人的机会！” and “From Zero to One, Turning Technology into Opportunity for Everyone！”.
+2. Working philosophy, two bold lines at GitHub's native H3 size (20 px): “从零到一，让技术进步成为每个人的机会！” and “From Zero to One, Turning Technology into Opportunity for Everyone！”.
 3. Live proof: stars, commits, PRs, issues, contributed repositories, and rank.
 4. Repositories: eight recently updated public repositories in a vertical list inspired by GitHub's native repository rows, with blue names, muted metadata, thin borders, and green weekly commit sparklines.
 
