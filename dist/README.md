@@ -68,7 +68,7 @@
     <source media="(prefers-color-scheme: dark) and (max-width: 767px)" srcset="./assets/repositories/5-dark-mobile.svg">
     <source media="(max-width: 767px)" srcset="./assets/repositories/5-light-mobile.svg">
     <source media="(prefers-color-scheme: dark)" srcset="./assets/repositories/5-dark.svg">
-    <img src="./assets/repositories/5-light.svg" width="100%" alt="shao-alan-operating-system · Public — 邵艾伦操作系统（AI薄肌版）：以“最小充分能力”为核心，为身体、AI、学习、职业与内容做薄肌化个人指导。 — Python · 2 stars · 1 forks · 0 open issues and pull requests">
+    <img src="./assets/repositories/5-light.svg" width="100%" alt="shao-alan-operating-system · Public — 邵艾伦操作系统（AI薄肌版）：以“最小充分能力”为核心，为身体、AI、学习、职业与内容做薄肌化个人指导。 — Python · 2 stars · 0 forks · 0 open issues and pull requests">
   </picture>
 </a>
 <a href="https://github.com/XiaoSiKe/zero-one-api-verifier">
