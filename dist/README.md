@@ -31,28 +31,28 @@
 
 ### Repositories
 
-<a href="https://github.com/XiaoSiKe/01-university-compass">
+<a href="https://github.com/XiaoSiKe/01-ai-club-website">
   <picture>
     <source media="(prefers-color-scheme: dark) and (max-width: 767px)" srcset="./assets/repositories/1-dark-mobile.svg">
     <source media="(max-width: 767px)" srcset="./assets/repositories/1-light-mobile.svg">
     <source media="(prefers-color-scheme: dark)" srcset="./assets/repositories/1-dark.svg">
-    <img src="./assets/repositories/1-light.svg" width="100%" alt="01-university-compass · Public — 零一大学指南针｜面向 AI 时代大学新生与初学者的学习和成长导航 Skill：从真实任务出发，选择路径，形成独立判断与实践能力。 — Python · 1 stars · 0 forks · 0 open issues and pull requests">
+    <img src="./assets/repositories/1-light.svg" width="100%" alt="01-ai-club-website · Public — 零一 AI 日新社（FZU AI CLUB）官网，正式域名 club.01aiedu.com — JavaScript · 2 stars · 0 forks · 0 open issues and pull requests">
   </picture>
 </a>
-<a href="https://github.com/XiaoSiKe/zero-one-api-verifier">
+<a href="https://github.com/XiaoSiKe/01-university-compass">
   <picture>
     <source media="(prefers-color-scheme: dark) and (max-width: 767px)" srcset="./assets/repositories/2-dark-mobile.svg">
     <source media="(max-width: 767px)" srcset="./assets/repositories/2-light-mobile.svg">
     <source media="(prefers-color-scheme: dark)" srcset="./assets/repositories/2-dark.svg">
-    <img src="./assets/repositories/2-light.svg" width="100%" alt="zero-one-api-verifier · Public — 零一智鉴 · API 真测雷达：开源 AI API 中转站风险检测平台 — Python · 3 stars · 0 forks · 0 open issues and pull requests">
+    <img src="./assets/repositories/2-light.svg" width="100%" alt="01-university-compass · Public — 零一大学指南针｜面向 AI 时代大学新生与初学者的学习和成长导航 Skill：从真实任务出发，选择路径，形成独立判断与实践能力。 — Python · 1 stars · 0 forks · 0 open issues and pull requests">
   </picture>
 </a>
-<a href="https://github.com/XiaoSiKe/01-ai-club-website">
+<a href="https://github.com/XiaoSiKe/zero-one-api-verifier">
   <picture>
     <source media="(prefers-color-scheme: dark) and (max-width: 767px)" srcset="./assets/repositories/3-dark-mobile.svg">
     <source media="(max-width: 767px)" srcset="./assets/repositories/3-light-mobile.svg">
     <source media="(prefers-color-scheme: dark)" srcset="./assets/repositories/3-dark.svg">
-    <img src="./assets/repositories/3-light.svg" width="100%" alt="01-ai-club-website · Public — 零一 AI 日新社（FZU AI CLUB）官网，正式域名 club.01aiedu.com — JavaScript · 2 stars · 0 forks · 0 open issues and pull requests">
+    <img src="./assets/repositories/3-light.svg" width="100%" alt="zero-one-api-verifier · Public — 零一智鉴 · API 真测雷达：开源 AI API 中转站风险检测平台 — Python · 3 stars · 0 forks · 0 open issues and pull requests">
   </picture>
 </a>
 <a href="https://github.com/XiaoSiKe/cet-sprint-coach">
