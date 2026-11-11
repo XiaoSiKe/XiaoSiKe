@@ -31,52 +31,52 @@
 
 ### Repositories
 
-<a href="https://github.com/XiaoSiKe/01-ai-club-website">
+<a href="https://github.com/XiaoSiKe/zero-one-orbit-intro">
   <picture>
     <source media="(prefers-color-scheme: dark) and (max-width: 767px)" srcset="./assets/repositories/1-dark-mobile.svg">
     <source media="(max-width: 767px)" srcset="./assets/repositories/1-light-mobile.svg">
     <source media="(prefers-color-scheme: dark)" srcset="./assets/repositories/1-dark.svg">
-    <img src="./assets/repositories/1-light.svg" width="100%" alt="01-ai-club-website · Public — 零一 AI 日新社（FZU AI CLUB）官网，正式域名 club.01aiedu.com — JavaScript · 2 stars · 0 forks · 0 open issues and pull requests">
-  </picture>
-</a>
-<a href="https://github.com/XiaoSiKe/zero-one-lingjie-theme">
-  <picture>
-    <source media="(prefers-color-scheme: dark) and (max-width: 767px)" srcset="./assets/repositories/2-dark-mobile.svg">
-    <source media="(max-width: 767px)" srcset="./assets/repositories/2-light-mobile.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/repositories/2-dark.svg">
-    <img src="./assets/repositories/2-light.svg" width="100%" alt="zero-one-lingjie-theme · Public — 零一·凌界｜零一 AI 日新社专属 DSH 黑白机械终端主题：动态数据雨、机械导轨与桌面入场衔接 — JavaScript · 1 stars · 0 forks · 0 open issues and pull requests">
-  </picture>
-</a>
-<a href="https://github.com/XiaoSiKe/lingyi-shiwen">
-  <picture>
-    <source media="(prefers-color-scheme: dark) and (max-width: 767px)" srcset="./assets/repositories/3-dark-mobile.svg">
-    <source media="(max-width: 767px)" srcset="./assets/repositories/3-light-mobile.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/repositories/3-dark.svg">
-    <img src="./assets/repositories/3-light.svg" width="100%" alt="lingyi-shiwen · Public — 零一拾文 · 公众号自适应采集引擎｜Skill 直接调用核心源码，初步雏形开发者 Spark — Python · 0 stars · 0 forks · 0 open issues and pull requests">
-  </picture>
-</a>
-<a href="https://github.com/XiaoSiKe/zero-one-api">
-  <picture>
-    <source media="(prefers-color-scheme: dark) and (max-width: 767px)" srcset="./assets/repositories/4-dark-mobile.svg">
-    <source media="(max-width: 767px)" srcset="./assets/repositories/4-light-mobile.svg">
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/repositories/4-dark.svg">
-    <img src="./assets/repositories/4-light.svg" width="100%" alt="zero-one-api · Public — 零一 API：基于 Sub2API 的定制网关、控制台与运维工具 — JavaScript · 2 stars · 0 forks · 0 open issues and pull requests">
+    <img src="./assets/repositories/1-light.svg" width="100%" alt="zero-one-orbit-intro · Public — 零一·环轨启序｜零一 AI 日新社专为社员制作的 DSH 黑白机械环轨开场动效 — JavaScript · 0 stars · 0 forks · 0 open issues and pull requests">
   </picture>
 </a>
 <a href="https://github.com/XiaoSiKe/01-lingguang-prologue">
   <picture>
+    <source media="(prefers-color-scheme: dark) and (max-width: 767px)" srcset="./assets/repositories/2-dark-mobile.svg">
+    <source media="(max-width: 767px)" srcset="./assets/repositories/2-light-mobile.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/repositories/2-dark.svg">
+    <img src="./assets/repositories/2-light.svg" width="100%" alt="01-lingguang-prologue · Public — 零一·棱光序章｜零一 AI 日新社专为社员制作的 DSH 开场动效 — Rust · 0 stars · 0 forks · 0 open issues and pull requests">
+  </picture>
+</a>
+<a href="https://github.com/XiaoSiKe/01-ai-club-website">
+  <picture>
+    <source media="(prefers-color-scheme: dark) and (max-width: 767px)" srcset="./assets/repositories/3-dark-mobile.svg">
+    <source media="(max-width: 767px)" srcset="./assets/repositories/3-light-mobile.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/repositories/3-dark.svg">
+    <img src="./assets/repositories/3-light.svg" width="100%" alt="01-ai-club-website · Public — 零一 AI 日新社（FZU AI CLUB）官网，正式域名 club.01aiedu.com — JavaScript · 2 stars · 0 forks · 0 open issues and pull requests">
+  </picture>
+</a>
+<a href="https://github.com/XiaoSiKe/zero-one-lingjie-theme">
+  <picture>
+    <source media="(prefers-color-scheme: dark) and (max-width: 767px)" srcset="./assets/repositories/4-dark-mobile.svg">
+    <source media="(max-width: 767px)" srcset="./assets/repositories/4-light-mobile.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/repositories/4-dark.svg">
+    <img src="./assets/repositories/4-light.svg" width="100%" alt="zero-one-lingjie-theme · Public — 零一·凌界｜零一 AI 日新社专属 DSH 黑白机械终端主题：动态数据雨、机械导轨与桌面入场衔接 — JavaScript · 1 stars · 0 forks · 0 open issues and pull requests">
+  </picture>
+</a>
+<a href="https://github.com/XiaoSiKe/lingyi-shiwen">
+  <picture>
     <source media="(prefers-color-scheme: dark) and (max-width: 767px)" srcset="./assets/repositories/5-dark-mobile.svg">
     <source media="(max-width: 767px)" srcset="./assets/repositories/5-light-mobile.svg">
     <source media="(prefers-color-scheme: dark)" srcset="./assets/repositories/5-dark.svg">
-    <img src="./assets/repositories/5-light.svg" width="100%" alt="01-lingguang-prologue · Public — 零一·棱光序章｜零一 AI 日新社专为社员制作的 DSH 开场动效 — Rust · 0 stars · 0 forks · 0 open issues and pull requests">
+    <img src="./assets/repositories/5-light.svg" width="100%" alt="lingyi-shiwen · Public — 零一拾文 · 公众号自适应采集引擎｜Skill 直接调用核心源码，初步雏形开发者 Spark — Python · 0 stars · 0 forks · 0 open issues and pull requests">
   </picture>
 </a>
-<a href="https://github.com/XiaoSiKe/zero-one-orbit-intro">
+<a href="https://github.com/XiaoSiKe/zero-one-api">
   <picture>
     <source media="(prefers-color-scheme: dark) and (max-width: 767px)" srcset="./assets/repositories/6-dark-mobile.svg">
     <source media="(max-width: 767px)" srcset="./assets/repositories/6-light-mobile.svg">
     <source media="(prefers-color-scheme: dark)" srcset="./assets/repositories/6-dark.svg">
-    <img src="./assets/repositories/6-light.svg" width="100%" alt="zero-one-orbit-intro · Public — 零一·环轨启序｜零一 AI 日新社专为社员制作的 DSH 黑白机械环轨开场动效 — JavaScript · 0 stars · 0 forks · 0 open issues and pull requests">
+    <img src="./assets/repositories/6-light.svg" width="100%" alt="zero-one-api · Public — 零一 API：基于 Sub2API 的定制网关、控制台与运维工具 — JavaScript · 2 stars · 0 forks · 0 open issues and pull requests">
   </picture>
 </a>
 <a href="https://github.com/XiaoSiKe/01-university-compass">
