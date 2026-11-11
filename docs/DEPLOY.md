@@ -4,7 +4,7 @@ GitHub renders this README as the profile because the public repository is named
 
 ## How it updates
 
-The **Refresh pixel profile** workflow runs once per day at 09:17 Asia/Shanghai (01:17 UTC), and remains available for manual dispatch. It generates the visible club introduction from the bilingual motto in `config/profile.json` and the complete body in `config/introduction.md`. The README contains the supplied club identity, founding purpose, invitation, joining link, and poster.
+The **Refresh pixel profile** workflow runs once per day at 09:17 Asia/Shanghai (01:17 UTC), and remains available for manual dispatch. It generates the visible club introduction from the bilingual motto in `config/profile.json` and the complete body in `config/introduction.md`. The README contains the supplied club identity, founding purpose, invitation, and poster.
 
 The poster is stored at `assets/01-ai-club.png`; the README references that local image rather than the expiring Feishu download link. GitHub's native Markdown handles typography, quote blocks, light and dark themes, and responsive wrapping. The bilingual motto uses a bold H3 at approximately 20 px.
 
