@@ -6,7 +6,6 @@ import { renderRepositorySvg, selectRepositories } from "./repositories.mjs";
 const root = process.cwd();
 const config = JSON.parse(await readFile(path.join(root, "config", "profile.json"), "utf8"));
 const introduction = await readFile(path.join(root, "config", "introduction.md"), "utf8");
-const clubPoster = await readFile(path.join(root, "assets", "01-ai-club.png"));
 const readme = await readFile(path.join(root, "README.md"), "utf8");
 const distReadme = await readFile(path.join(root, "dist", "README.md"), "utf8");
 const card = await readFile(path.join(root, "assets", "github-stats.png"));
@@ -30,15 +29,13 @@ for (const line of [config.motto, config.mottoEnglish]) {
 
 assert(readme === distReadme, "README.md and dist/README.md must be identical.");
 assert(readme.includes(introduction.trim()), "README must preserve the complete club introduction.");
-assert(clubPoster.subarray(0, 8).equals(pngSignature), "The club poster is not a valid PNG.");
-assert(readme.includes("./assets/01-ai-club.png"), "README must reference the local club poster.");
-assert(!readme.includes("feishu.cn"), "README must not depend on the temporary Feishu image link.");
+assert(!readme.includes("01-ai-club.png"), "README still references the removed club poster.");
 assert(!readme.includes("这句话加粗") && !readme.includes("&#x20;"), "Editing instructions and pasted whitespace entities must not appear in the profile.");
 assert(!readme.includes("Hi, I'm"), "README must start with the bilingual motto.");
-const posterPosition = readme.indexOf("./assets/01-ai-club.png");
+const introductionEnd = readme.indexOf(introduction.trim()) + introduction.trim().length;
 const statisticsPosition = readme.indexOf("./assets/github-stats.png");
 const repositoriesPosition = readme.indexOf("### Repositories");
-assert(statisticsPosition > posterPosition && repositoriesPosition > statisticsPosition, "The profile must retain the club introduction and poster, then the statistics card and vertical repository list.");
+assert(statisticsPosition > introductionEnd && repositoriesPosition > statisticsPosition, "The profile must display the club introduction, statistics card, and vertical repository list in order.");
 assert(readme.includes(`https://github.com/${config.username}?tab=repositories`), "README must link to the complete repository tab.");
 assert(!readme.includes("这场 AI 革命"), "README still contains the removed manifesto line.");
 assert(!readme.includes("AI 独立开发｜零一 AI 日新社 社长"), "README still contains the removed role line.");
