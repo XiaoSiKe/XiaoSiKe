@@ -1,6 +1,6 @@
 1. **这里是「零一 AI 日新社｜01 AI ClUB」！**
 
-   > **一个面向 AI 探索者、向全社会开放的共创社区。**<br>
+   > **一个面向 AI 探索者、向全社会开放的创新共创社区。**<br>
    > **「零一 AI 日新社」成立于 2026 年 9 月 1 日，我是社长，零一扬！**<br>
    > **启航导师：[club.01aiedu.com/?page=mentors](https://club.01aiedu.com/?page=mentors)**<br>
    > **领军团队：[club.01aiedu.com/?page=leadership](https://club.01aiedu.com/?page=leadership)**<br>
