@@ -28,7 +28,7 @@ assert(banner.subarray(0, 8).equals(pngSignature), "The 01PLAYER banner is not a
 
 assert(readme === distReadme, "README.md and dist/README.md must be identical.");
 assert(readme.slice(readme.indexOf("-->") + 3).trimStart().startsWith(introduction.trim()), "README must open with the complete profile introduction.");
-assert(introduction.includes("![零一玩家 01PLAYER 横幅](./assets/01player-banner.png)"), "The introduction must display the 01PLAYER banner.");
+assert(introduction.startsWith("![零一玩家 01PLAYER 横幅](./assets/01player-banner.png)\n\n"), "The profile must place the 01PLAYER banner above the introduction text.");
 assert(!readme.includes("01-ai-club.png"), "README still references the removed club poster.");
 assert(!readme.includes("这句话加粗") && !readme.includes("&#x20;"), "Editing instructions and pasted whitespace entities must not appear in the profile.");
 const introductionEnd = readme.indexOf(introduction.trim()) + introduction.trim().length;

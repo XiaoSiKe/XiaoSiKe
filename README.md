@@ -1,5 +1,7 @@
 <!-- Generated automatically. Edit config/introduction.md to update the introduction. -->
 
+![零一玩家 01PLAYER 横幅](./assets/01player-banner.png)
+
 **1、大家好，江湖人称“零一扬”，也可以叫我“扬子”。**\
 **一个爱折腾的 AI 爱好者，一个爱思考的普通人，也是一个年少轻狂的大学生！**
 
@@ -11,8 +13,6 @@
 **所以，我创办了「零一玩家」！** **这是一个以大学生为主要群体、面向全社会开放的「AI 共创社区」！**\
 **我们把现实生活看作一个开放的世界游戏：「地球Online：零一玩家」，每个人都是自己故事的主角！**\
 **我们带着「玩家」的勇气与好奇心，在实践中不断探索与成长，完成自己的从零到一！**
-
-![零一玩家 01PLAYER 横幅](./assets/01player-banner.png)
 
 <br>
 

@@ -4,7 +4,7 @@ GitHub renders this README as the profile because the public repository is named
 
 ## How it updates
 
-The **Refresh pixel profile** workflow runs once per day at 09:17 Asia/Shanghai (01:17 UTC), and remains available for manual dispatch. It builds the profile README from `config/introduction.md`. The introduction covers the author's current work and the founding purpose of the 01PLAYER community, followed by the banner in `assets/01player-banner.png`.
+The **Refresh pixel profile** workflow runs once per day at 09:17 Asia/Shanghai (01:17 UTC), and remains available for manual dispatch. It builds the profile README from `config/introduction.md`. It opens with the banner in `assets/01player-banner.png`, followed by the author's current work and the founding purpose of the 01PLAYER community.
 
 The data pipeline refreshes the original `pixel-profile@1.3.0` statistics card, repository SVG assets, and snapshot. After the introduction, the visible README displays the statistics card and eight recently updated public repositories as clickable vertical rows with real weekly commit curves. Repository rows provide light, dark, and mobile picture sources. A final link opens GitHub's complete repository tab.
 
