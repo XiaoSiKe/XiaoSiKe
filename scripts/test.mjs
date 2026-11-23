@@ -9,6 +9,7 @@ const introduction = await readFile(path.join(root, "config", "introduction.md")
 const readme = await readFile(path.join(root, "README.md"), "utf8");
 const distReadme = await readFile(path.join(root, "dist", "README.md"), "utf8");
 const card = await readFile(path.join(root, "assets", "github-stats.png"));
+const banner = await readFile(path.join(root, "assets", "01player-banner.png"));
 const snapshot = JSON.parse(await readFile(path.join(root, "dist", "snapshot.json"), "utf8"));
 const workflow = await readFile(path.join(root, ".github", "workflows", "update-profile.yml"), "utf8");
 const deployGuide = await readFile(path.join(root, "docs", "DEPLOY.md"), "utf8");
@@ -23,24 +24,20 @@ assert(card.readUInt32BE(16) === 1226, "The pixel-profile card must be 1226 px w
 assert(card.readUInt32BE(20) === 430, "The pixel-profile card must be 430 px high.");
 assert(card.length > 50_000, "The generated stats card is unexpectedly small.");
 
-for (const line of [config.motto, config.mottoEnglish]) {
-  assert(readme.includes(line), `README is missing: ${line}`);
-}
+assert(banner.subarray(0, 8).equals(pngSignature), "The 01PLAYER banner is not a valid PNG.");
 
 assert(readme === distReadme, "README.md and dist/README.md must be identical.");
-assert(readme.includes(introduction.trim()), "README must preserve the complete club introduction.");
+assert(readme.slice(readme.indexOf("-->") + 3).trimStart().startsWith(introduction.trim()), "README must open with the complete profile introduction.");
+assert(introduction.includes("![零一玩家 01PLAYER 横幅](./assets/01player-banner.png)"), "The introduction must display the 01PLAYER banner.");
 assert(!readme.includes("01-ai-club.png"), "README still references the removed club poster.");
 assert(!readme.includes("这句话加粗") && !readme.includes("&#x20;"), "Editing instructions and pasted whitespace entities must not appear in the profile.");
-assert(!readme.includes("Hi, I'm"), "README must start with the bilingual motto.");
 const introductionEnd = readme.indexOf(introduction.trim()) + introduction.trim().length;
 const statisticsPosition = readme.indexOf("./assets/github-stats.png");
 const repositoriesPosition = readme.indexOf("### Repositories");
-assert(statisticsPosition > introductionEnd && repositoriesPosition > statisticsPosition, "The profile must display the club introduction, statistics card, and vertical repository list in order.");
+assert(statisticsPosition > introductionEnd && repositoriesPosition > statisticsPosition, "The profile must display the profile introduction, statistics card, and vertical repository list in order.");
 assert(readme.includes(`https://github.com/${config.username}?tab=repositories`), "README must link to the complete repository tab.");
 assert(!readme.includes("这场 AI 革命"), "README still contains the removed manifesto line.");
 assert(!readme.includes("AI 独立开发｜零一 AI 日新社 社长"), "README still contains the removed role line.");
-assert(readme.includes(`<strong>${config.motto}</strong>`), "The Chinese motto must be bold.");
-assert(readme.includes(`<strong>${config.mottoEnglish}</strong>`), "The English motto must be bold.");
 assert(!readme.includes("以 AI 为引擎"), "README still contains the old motto.");
 assert(Number.isInteger(config.repositoryLimit) && config.repositoryLimit > 0, "Repository limit must be a positive integer.");
 assert(snapshot.repositories.length > 0 && snapshot.repositories.length <= config.repositoryLimit, "Generated repository count is invalid.");

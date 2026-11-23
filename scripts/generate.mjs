@@ -131,10 +131,7 @@ function escapeHtml(value) {
 }
 
 function renderReadme(repositories) {
-  return `<!-- Generated automatically. Edit config/profile.json or config/introduction.md instead. -->
-
-<h3><strong>${escapeHtml(config.motto)}</strong><br>
-<strong>${escapeHtml(config.mottoEnglish)}</strong></h3>
+  return `<!-- Generated automatically. Edit config/introduction.md to update the introduction. -->
 
 ${introduction.trim()}
 
@@ -221,4 +218,4 @@ await Promise.all([
   )
 ]);
 
-console.log(`Generated the club introduction, statistics card, and ${listedRepositories.length} repository rows for ${config.username}.`);
+console.log(`Generated the profile introduction, statistics card, and ${listedRepositories.length} repository rows for ${config.username}.`);

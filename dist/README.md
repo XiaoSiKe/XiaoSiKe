@@ -1,25 +1,18 @@
-<!-- Generated automatically. Edit config/profile.json or config/introduction.md instead. -->
+<!-- Generated automatically. Edit config/introduction.md to update the introduction. -->
 
-<h3><strong>从零到一，让技术进步成为每个人的机会！</strong><br>
-<strong>From Zero to One, Turning Technology into Opportunity for Everyone！</strong></h3>
+**1、大家好，江湖人称“零一扬”，也可以叫我“扬子”。**\
+**一个爱折腾的 AI 爱好者，一个爱思考的普通人，也是一个年少轻狂的大学生！**
 
-1. **这里是「零一 AI 日新社｜01 AI ClUB」！**
+**2、目前我主要在做些什么？**\
+**「零一玩家智能科技」创始人兼CEO、创办与运营「零一玩家」AI 共创社区；**\
+**开发「零一玩家 Shadow」、金融投资以及运营自媒体。**
 
-   > **一个面向 AI 探索者、向全社会开放的创新共创社区。**<br>
-   > **「零一 AI 日新社」成立于 2026 年 9 月 1 日，我是社长，零一扬！**<br>
-   > **启航导师：[club.01aiedu.com/?page=mentors](https://club.01aiedu.com/?page=mentors)**<br>
-   > **领军团队：[club.01aiedu.com/?page=leadership](https://club.01aiedu.com/?page=leadership)**<br>
-   > **领航先锋：[club.01aiedu.com/?page=pioneers](https://club.01aiedu.com/?page=pioneers)**
+**3、我的初心，「让技术进步成为每个人的机会」！**\
+**所以，我创办了「零一玩家」！** **这是一个以大学生为主要群体、面向全社会开放的「AI 共创社区」！**\
+**我们把现实生活看作一个开放的世界游戏：「地球Online：零一玩家」，每个人都是自己故事的主角！**\
+**我们带着「玩家」的勇气与好奇心，在实践中不断探索与成长，完成自己的从零到一！**
 
-2. **我们成立社区的初心，是探索一种能在真实世界中落地的“大学｜学习新范式”！**
-
-   > **我们不把绩点和考试视为大学成长的全部，而是选择在实践中不断成长，不断进步。**<br>
-   > **在交流与实践中迈出第一步，完成属于自己的从零到一！**
-
-3. **如果你也认可这种长期主义，欢迎加入「零一」！**
-
-   > **加入零一：[club.01aiedu.com/#join](https://club.01aiedu.com/#join)**<br>
-   > **零一招募：[零一团队招募计划](https://scn96l2kzmbn.feishu.cn/wiki/C06Pw29bDiA6I2kZy7ecsbcZnag)**
+![零一玩家 01PLAYER 横幅](./assets/01player-banner.png)
 
 <br>
 
