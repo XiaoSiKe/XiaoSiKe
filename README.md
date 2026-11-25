@@ -30,7 +30,7 @@
     <source media="(prefers-color-scheme: dark) and (max-width: 767px)" srcset="./assets/repositories/1-dark-mobile.svg">
     <source media="(max-width: 767px)" srcset="./assets/repositories/1-light-mobile.svg">
     <source media="(prefers-color-scheme: dark)" srcset="./assets/repositories/1-dark.svg">
-    <img src="./assets/repositories/1-light.svg" width="100%" alt="01-rd-layout · Public — 零一RD排版｜GitHub README 排版 Skill —  · 0 stars · 0 forks · 0 open issues and pull requests">
+    <img src="./assets/repositories/1-light.svg" width="100%" alt="01-rd-layout · Public — 零一RD排版｜GitHub README 排版 Skill —  · 1 stars · 0 forks · 0 open issues and pull requests">
   </picture>
 </a>
 <a href="https://github.com/XiaoSiKe/01-architecture-atlas">
